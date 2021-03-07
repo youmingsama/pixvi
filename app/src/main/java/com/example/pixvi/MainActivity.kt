@@ -38,8 +38,8 @@ class MainActivity : AppCompatActivity() {
         val webViewHitTestResult: HitTestResult = web.getHitTestResult()
         if (webViewHitTestResult.type == HitTestResult.IMAGE_TYPE ||
                 webViewHitTestResult.type == HitTestResult.SRC_IMAGE_ANCHOR_TYPE) {
-            contextMenu.setHeaderTitle("网页中下载图片")
-            contextMenu.add(0, 1, 0, "点击保存")
+            contextMenu.setHeaderTitle("啊啦你就这么想下载我吗？")
+            contextMenu.add(0, 1, 0, "是的")
                     .setOnMenuItemClickListener(object : MenuItem.OnMenuItemClickListener {
                         override fun onMenuItemClick(menuItem: MenuItem?): Boolean {
                             val DownloadImageURL = webViewHitTestResult.extra
