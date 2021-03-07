@@ -8,6 +8,7 @@ import android.os.Bundle
 import android.os.Environment
 import android.view.ContextMenu
 import android.view.ContextMenu.ContextMenuInfo
+import android.view.KeyEvent
 import android.view.MenuItem
 import android.view.View
 import android.webkit.URLUtil
@@ -33,6 +34,16 @@ class MainActivity : AppCompatActivity() {
         registerForContextMenu(web);
         web.loadUrl("https://lab.getloli.com/pixiv-viewer")
 
+    }
+
+    override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
+        if(keyCode==event?.keyCode){
+            if (web.canGoBack()){
+                web.goBack()
+                return true
+            }
+        }
+        return false
     }
 
     override fun onCreateContextMenu(
@@ -63,9 +74,9 @@ class MainActivity : AppCompatActivity() {
                             val downloadManager =
                                 getSystemService(Context.DOWNLOAD_SERVICE) as DownloadManager
                             downloadManager.enqueue(request)
-                            Toast.makeText(this@MainActivity, "下载成功", Toast.LENGTH_LONG).show()
+                            Toast.makeText(this@MainActivity, "啊啦啊啦真是可爱呢", Toast.LENGTH_LONG).show()
                         } else {
-                            Toast.makeText(this@MainActivity, "下载失败", Toast.LENGTH_LONG).show()
+                            Toast.makeText(this@MainActivity, "啊啦就这点觉悟吗", Toast.LENGTH_LONG).show()
                         }
                         return false
                     }
